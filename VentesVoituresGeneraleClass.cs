@@ -31,6 +31,7 @@ namespace VentesVoitures
 
         #endregion
 
+
         #region Initialisation 
 
       public static void InitMessagesErrreurs()
