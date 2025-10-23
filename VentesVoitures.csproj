@@ -46,16 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="VenteVoituresForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="VenteVoituresForm.Designer.cs">
+      <DependentUpon>VenteVoituresForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="VentesVoituresGeneraleClass.cs" />
+    <EmbeddedResource Include="VenteVoituresForm.resx">
+      <DependentUpon>VenteVoituresForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -67,6 +68,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="VentesVoituresClassDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -81,13 +83,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\8265400.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\illustration-icone-vectorielle-du-logo-du-concessionnaire-automobile_618034-883.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\logo-de-concessionnaire-de-voitures-de-sport-de-magasin-automobile_431254-original.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Transaction\Transaction.csproj">
+      <Project>{851e56a9-58ef-4191-9160-8ddfd986f53e}</Project>
+      <Name>Transaction</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

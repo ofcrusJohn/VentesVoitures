@@ -1,6 +1,6 @@
 ﻿namespace VentesVoitures
 {
-    partial class Form1
+    partial class VenteVoituresForm
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -293,6 +293,7 @@
             this.anneeComboBox.Name = "anneeComboBox";
             this.anneeComboBox.Size = new System.Drawing.Size(212, 21);
             this.anneeComboBox.TabIndex = 3;
+            this.anneeComboBox.SelectedIndexChanged += new System.EventHandler(this.modeleComboBox_SelectedIndexChanged);
             // 
             // modeleComboBox
             // 
@@ -301,6 +302,7 @@
             this.modeleComboBox.Name = "modeleComboBox";
             this.modeleComboBox.Size = new System.Drawing.Size(213, 21);
             this.modeleComboBox.TabIndex = 2;
+            this.modeleComboBox.SelectedIndexChanged += new System.EventHandler(this.modeleComboBox_SelectedIndexChanged);
             // 
             // livraisonDateTimePicker
             // 
@@ -335,8 +337,9 @@
             this.quitterButton.TabIndex = 5;
             this.quitterButton.Text = "&Quitter";
             this.quitterButton.UseVisualStyleBackColor = true;
+            this.quitterButton.Click += new System.EventHandler(this.Quitter_click);
             // 
-            // Form1
+            // VenteVoituresForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -348,8 +351,9 @@
             this.Controls.Add(this.LogoPictureBox);
             this.Controls.Add(this.venteMenuMenuStrip);
             this.MainMenuStrip = this.venteMenuMenuStrip;
-            this.Name = "Form1";
+            this.Name = "VenteVoituresForm";
             this.Text = "Ventes de voitures";
+            this.Load += new System.EventHandler(this.VenteVoituresForm_Load);
             this.venteMenuMenuStrip.ResumeLayout(false);
             this.venteMenuMenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
