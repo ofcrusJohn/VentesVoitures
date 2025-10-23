@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="VentesVoitures.VentesVoituresGeneraleClass" Collapsed="true">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="VentesVoitures.VentesVoituresGeneraleClass.CodesErreurs" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>VentesVoituresGeneraleClass.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VentesVoituresGeneraleClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VentesVoitures.VenteVoituresForm">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAASCCAAwKCgABAAAAOAABACAIgACEJQoACCSgEBCAA=</HashCode>
+      <FileName>VenteVoituresForm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="otransac" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TransactionNS.Transaction">
+    <Position X="5.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Forms.Form" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Class Name="System.Windows.Forms.Form.ControlCollection" Collapsed="true">
+        <TypeIdentifier />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
