@@ -19,8 +19,8 @@ namespace VentesVoitures
 
 
         #region Declaration
-        Transaction otransac;
-        Types oTypes;
+        private Transaction otransac;
+        private Types oTypes;
         #endregion
 
         #region Constructeur
@@ -40,22 +40,27 @@ namespace VentesVoitures
             try
             {
                 g.InitMessagesErrreurs();
-                otransac = new Transaction();
 
-                modeleComboBox.Items.AddRange(otransac.GetModel());
-                modeleComboBox.SelectedIndex = 0;
+                otransac = new Transaction();
+                oTypes = new Types();
+
+                modeleComboBox.Items.AddRange(oTypes.GetTypesModeles(CodesTypes.Modeles));
+                
+                typeVoitureComboBox.Items.AddRange(oTypes.GetTypesModeles(CodesTypes.Types));
 
                 anneeComboBox.Items.AddRange(otransac.GetAnnee());
+
+                modeleComboBox.SelectedIndex = 0;
                 anneeComboBox.SelectedIndex = 0;
-
-                oTypes = new Types();
-                string[] types = oTypes.GetTypesModeles(CodesTypes.Types);
-                string[] modeles = oTypes.GetTypesModeles(CodesTypes.Modeles);
-
+                typeVoitureComboBox.SelectedIndex = 0;
 
             }
+            catch (ArgumentOutOfRangeException es)
+            {
+                MessageBox.Show(es.ToString());
+            }
             catch (Exception ex) {
-                MessageBox.Show(g.tMessages[3]);
+                MessageBox.Show(g.tMessages[(int)ce.ErreurIndeterminee]);
             }
 
 
@@ -65,17 +70,28 @@ namespace VentesVoitures
         #region Obtenir le prix
         private void modeleComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 if (modeleComboBox.SelectedIndex != -1 && anneeComboBox.SelectedIndex != -1)
                 {
                     prixTextBox.Text = otransac.GetPrix(anneeComboBox.SelectedIndex, modeleComboBox.SelectedIndex).ToString("C2");
                 }
-            } 
+            }
+            
+            catch (ArgumentOutOfRangeException er)
+            {
+                MessageBox.Show(er.ToString());
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
             catch (Exception)
             {
                 MessageBox.Show(g.tMessages[(int)ce.ErreurPrix]);
 
             }
+            
 
         }
         #endregion
@@ -84,6 +100,14 @@ namespace VentesVoitures
         private void Quitter_click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        #endregion
+
+        #region Menu Aide
+        private void aProposToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           VentesVoituresAboutBox about=new VentesVoituresAboutBox();
+            about.ShowDialog();
         }
         #endregion
     }

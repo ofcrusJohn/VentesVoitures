@@ -58,6 +58,7 @@
             this.dateLivraisonLabel = new System.Windows.Forms.Label();
             this.enregistrerButton = new System.Windows.Forms.Button();
             this.quitterButton = new System.Windows.Forms.Button();
+            this.aProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.venteMenuMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.clientGroupBox.SuspendLayout();
@@ -84,6 +85,8 @@
             // 
             // aideToolStripMenuItem
             // 
+            this.aideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aProposToolStripMenuItem});
             this.aideToolStripMenuItem.Name = "aideToolStripMenuItem";
             this.aideToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.aideToolStripMenuItem.Text = "&Aide";
@@ -339,6 +342,13 @@
             this.quitterButton.UseVisualStyleBackColor = true;
             this.quitterButton.Click += new System.EventHandler(this.Quitter_click);
             // 
+            // aProposToolStripMenuItem
+            // 
+            this.aProposToolStripMenuItem.Name = "aProposToolStripMenuItem";
+            this.aProposToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aProposToolStripMenuItem.Text = "À propos";
+            this.aProposToolStripMenuItem.Click += new System.EventHandler(this.aProposToolStripMenuItem_Click);
+            // 
             // VenteVoituresForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -398,6 +408,7 @@
         private System.Windows.Forms.ComboBox modeleComboBox;
         private System.Windows.Forms.DateTimePicker livraisonDateTimePicker;
         private System.Windows.Forms.Label dateLivraisonLabel;
+        private System.Windows.Forms.ToolStripMenuItem aProposToolStripMenuItem;
     }
 }
 
