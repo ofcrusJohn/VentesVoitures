@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TransactionNS;
+using TypesNs;
 using g = VentesVoitures.VentesVoituresGeneraleClass;
 using ce = VentesVoitures.VentesVoituresGeneraleClass.CodesErreurs;
 
@@ -19,6 +20,7 @@ namespace VentesVoitures
 
         #region Declaration
         Transaction otransac;
+        Types oTypes;
         #endregion
 
         #region Constructeur
@@ -45,6 +47,12 @@ namespace VentesVoitures
 
                 anneeComboBox.Items.AddRange(otransac.GetAnnee());
                 anneeComboBox.SelectedIndex = 0;
+
+                oTypes = new Types();
+                string[] types = oTypes.GetTypesModeles(CodesTypes.Types);
+                string[] modeles = oTypes.GetTypesModeles(CodesTypes.Modeles);
+
+
             }
             catch (Exception ex) {
                 MessageBox.Show(g.tMessages[3]);
@@ -79,8 +87,5 @@ namespace VentesVoitures
         }
         #endregion
     }
-
-
-
 
 }

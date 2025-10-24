@@ -10,3 +10,9 @@ C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Transaction\obj\Debug\Transaction.c
 C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Transaction\obj\Debug\Transaction.csproj.CoreCompileInputs.cache
 C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Transaction\obj\Debug\Transaction.dll
 C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Transaction\obj\Debug\Transaction.pdb
+C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\bin\Debug\Transaction.dll
+C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\bin\Debug\Transaction.pdb
+C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.csproj.AssemblyReference.cache
+C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.csproj.CoreCompileInputs.cache
+C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.dll
+C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.pdb
