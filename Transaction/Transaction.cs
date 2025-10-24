@@ -83,6 +83,14 @@ namespace TransactionNS
             return tModele;
         }
 
+        //Surcharge GetPrix
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="annee">de 2016-2025->0-9</param>
+        /// <param name="model">de 0 à 6 comme index </param>
+        /// <returns>Prix du modele correspondant à l'année</returns>
+       #region Surcharge GetPrix
         /// <summary>
         /// 
         /// </summary>
@@ -91,9 +99,48 @@ namespace TransactionNS
         /// <returns>Prix du modele correspondant à l'année</returns>
         public decimal GetPrix(int annee, int model)
         {
+            if (annee < 0 || annee > tAnnee.Length)
+            {
+                throw new ArgumentOutOfRangeException("l'Index de l'année est erronnée.");
+            }
+
+            if (model < 0 || model > tModele.Length)
+            {
+                throw new ArgumentOutOfRangeException("l'Index du modèle est erronnée.");
+            }
+
+
             return tPrix[annee, model];
+
+        }
+
+        /// <summary>
+        /// retourne le prix selon l'année et le modèle
+        /// </summary>
+        /// <param name="annee"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        public decimal GetPrix(string annee, string model)
+        {
+            int anneeIndex = Array.IndexOf(tAnnee, annee);
+            int modelIndex = Array.IndexOf(tModele, model);
+
+            if (anneeIndex == -1)
+            {
+                throw new ArgumentException("Année  invalide." + nameof(annee));
+            }
+
+            if (modelIndex == -1)
+            {
+                throw new ArgumentException("Modèle invalide." + nameof(model));
+            }
+            return tPrix[anneeIndex, modelIndex];
         }
         #endregion
 
+
+        #endregion
+        //Surcharge
     }
 }
