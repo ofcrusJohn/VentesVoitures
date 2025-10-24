@@ -83,6 +83,7 @@ namespace TransactionNS
             return tModele;
         }
 
+        //Surcharge GetPrix
         /// <summary>
         /// 
         /// </summary>
