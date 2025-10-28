@@ -142,5 +142,78 @@ namespace TransactionNS
 
         #endregion
         //Surcharge
+       
+
+        #region champs privés
+        private int id;
+        private string client;
+        private decimal montant;
+        private string modele;
+        private int annee;
+        private DateTime dateLivraison;
+        #endregion
+
+        #region Getters et setters
+        public int Id
+        {
+            get { return id; }
+
+        }
+        public decimal Montant
+        {
+            get { return montant; }
+            set { montant = value; }
+        }
+        public string Client
+        {
+            get { return client; }
+            set { client = value; }
+        }
+        public string Modele
+        {
+            get { return modele; }
+            set { modele = value; }
+        }
+        public int Annee
+        {
+            get { return annee; }
+            set { annee = value; }
+        }
+        public DateTime DateLivraison
+        {
+            get { return dateLivraison; }
+            set { dateLivraison = value; }
+        }
+        #endregion
+
+        #region constructeur du champ privé
+        public Transaction(int id, string client, decimal montant, int annee, string modele, DateTime livraisonDate)
+        {
+            this.id = id;
+            Client = client;
+            Montant = montant;
+            Annee = annee;
+            Modele = modele;
+            DateLivraison = livraisonDate;
+        }
+        #endregion
+        public void Enregistrer(int id, string client, decimal montant, int annee, string modele, DateTime livraisonDate)
+        {
+            this.id = id;
+            Client = client;
+            Montant = montant;
+            Annee = annee;
+            Modele = modele;
+            DateLivraison = livraisonDate;
+
+
+            Enregistrer();
+
+        }
+        public void Enregistrer()
+        {
+            Console.WriteLine(Client, Id, Montant, Modele, annee);
+        }
+
     }
 }
