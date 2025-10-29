@@ -16,3 +16,9 @@ C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction
 C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.csproj.CoreCompileInputs.cache
 C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.dll
 C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.pdb
+C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\bin\Debug\Transaction.dll
+C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\bin\Debug\Transaction.pdb
+C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.csproj.AssemblyReference.cache
+C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.csproj.CoreCompileInputs.cache
+C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.dll
+C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.pdb

@@ -187,6 +187,18 @@ namespace TransactionNS
         #endregion
 
         #region constructeur du champ privé
+
+       
+
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="id"></param>
+       /// <param name="client"></param>
+       /// <param name="montant"></param>
+       /// <param name="annee"></param>
+       /// <param name="modele"></param>
+       /// <param name="livraisonDate"></param>
         public Transaction(int id, string client, decimal montant, int annee, string modele, DateTime livraisonDate)
         {
             this.id = id;
@@ -197,6 +209,15 @@ namespace TransactionNS
             DateLivraison = livraisonDate;
         }
         #endregion
+        /// <summary>
+        /// SUrcharge de Transmission de donnée
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="client"></param>
+        /// <param name="montant"></param>
+        /// <param name="annee"></param>
+        /// <param name="modele"></param>
+        /// <param name="livraisonDate"></param>
         public void Enregistrer(int id, string client, decimal montant, int annee, string modele, DateTime livraisonDate)
         {
             this.id = id;
@@ -210,10 +231,13 @@ namespace TransactionNS
             Enregistrer();
 
         }
+        /// <summary>
+        ///  Sauvegarde l'information dans un file
+        /// </summary>
         public void Enregistrer()
         {
             Console.WriteLine(Client, Id, Montant, Modele, annee);
         }
-
+        
     }
 }
