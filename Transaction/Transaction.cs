@@ -6,9 +6,21 @@ using System.Threading.Tasks;
 
 namespace TransactionNS
 {
+    /// <summary>
+    /// Classe métier représentant une transaction de vente de Voiture
+    /// </summary>
     public class Transaction
     {
-        #region Déeclation des tableaux
+        #region Champs privés
+
+        private int idInt;
+        private string nomStr;
+        private string prenomStr;
+        private string adresseStr;
+        private string telephoneStr;
+        private string marqueStr;
+        private DateTime dateLivraisonDateTime;
+        private decimal prixDecimal;
 
         private string[] tModele;
         private string[] tAnnee;
@@ -23,7 +35,7 @@ namespace TransactionNS
 
         private void InitModele()
         {
-            tModele = new string[7] { "CX-3", "Altima", "Elantra", "Primera", "Rav4", "Focus","Civic" };
+            tModele = new string[7] { "CX-3", "Altima", "Elantra", "Primera", "Rav4", "Focus", "Civic" };
 
         }
 
@@ -33,7 +45,7 @@ namespace TransactionNS
         }
         private void InitAnnee()
         {
-            tAnnee = new string[10] { "2016", "2017","2018","2019","2020","2021","2022","2023","2024","2025" };
+            tAnnee = new string[10] { "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025" };
         }
         private void InitPrix()
         {
@@ -65,21 +77,81 @@ namespace TransactionNS
 
         #endregion
 
-        #region Constructeur du le .dll
+
+        #region Propriétés
 
         /// <summary>
-        /// Constructor par défaut:
+        /// Obtient l'identifiant unique de la transaction (lecture seule)
         /// </summary>
-        public Transaction()
+        public int ID
         {
-            InitAnnee();
-            InitModele();
-            InitPrix();
-            InitMarque();
+            get { return idInt; }
         }
-        #endregion
 
-        #region Getters
+        /// <summary>
+        /// Obtient ou définit le nom du client
+        /// </summary>
+        public string Nom
+        {
+            get { return nomStr; }
+            set { nomStr = value; }
+        }
+
+        /// <summary>
+        /// Obtient ou définit le prénom du client
+        /// </summary>
+        public string Prenom
+        {
+            get { return prenomStr; }
+            set { prenomStr = value; }
+        }
+
+        /// <summary>
+        /// Obtient ou définit l'adresse du client
+        /// </summary>
+        public string Adresse
+        {
+            get { return adresseStr; }
+            set { adresseStr = value; }
+        }
+
+        /// <summary>
+        /// Obtient ou définit le numéro de téléphone du client
+        /// </summary>
+        public string Telephone
+        {
+            get { return telephoneStr; }
+            set { telephoneStr = value; }
+        }
+
+        /// <summary>
+        /// Obtient ou définit la marque des Voiture
+        /// </summary>
+        public string Marque
+        {
+            get { return marqueStr; }
+            set { marqueStr = value; }
+        }
+
+        /// <summary>
+        /// Obtient ou définit la date de livraison prévue
+        /// </summary>
+        public DateTime DateLivraison
+        {
+            get { return dateLivraisonDateTime; }
+            set { dateLivraisonDateTime = value; }
+        }
+
+        /// <summary>
+        /// Obtient ou définit le prix total de la transaction
+        /// </summary>
+        public decimal Prix
+        {
+            get { return prixDecimal; }
+            set { prixDecimal = value; }
+        }
+
+
         public string[] GetAnnee()
         {
             return tAnnee;
@@ -95,14 +167,7 @@ namespace TransactionNS
             return tMarque;
         }
 
-        //Surcharge GetPrix
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="annee">de 2016-2025->0-9</param>
-        /// <param name="model">de 0 à 6 comme index </param>
-        /// <returns>Prix du modele correspondant à l'année</returns>
-       #region Surcharge GetPrix
+
         /// <summary>
         /// 
         /// </summary>
@@ -151,171 +216,96 @@ namespace TransactionNS
         }
         #endregion
 
+        #region Constructeurs
 
-        #endregion
-        //Surcharge
-       
-
-        #region champs privés
-        private int id;
-        private string client;
-        private decimal montant;
-        private string modele;
-        private int annee;
-        private DateTime dateLivraison;
-        private string Nom;
-        private string Prenom;
-        private string adresse;
-        private string codePostal;
-        private string Phone;
-        private string TypeDeVoiture;
-        private string marque;
-        private decimal prix;
-
-        #endregion
-
-        #region Getters et setters
-        public int Id
-        {
-            get { return id; }
-
-
-        }
-        public string type
-        { 
-           get {return TypeDeVoiture; }
-            set { TypeDeVoiture = value; }
-        }
-
-
-        public string nom
-        {
-            get { return Nom; }
-            set { Nom = value; }
-        }
-
-        public string prenom
-        {
-            get { return Prenom; }
-            set { Prenom = value; }
-        }
-        public string Adresse
-        {
-            get { return adresse; }
-            set { adresse = value; }
-        }
-        public string CodePostal
-        {
-            get { return codePostal; }
-            set { codePostal = value; }
-        }
-        public decimal Prix
-        {
-            get { return prix; }
-            set { prix = value; }
-        }
-      
-        public string phone
-        {
-            get { return Phone; }
-            set { Phone = value; }
-        }
-
-
-
-        public decimal Montant
-        {
-            get { return montant; }
-            set { montant = value; }
-        }
-        public string Client
-        {
-            get { return client; }
-            set { client = value; }
-        }
-        public string Modele
-        {
-            get { return modele; }
-            set { modele = value; }
-        }
-        public int Annee
-        {
-            get { return annee; }
-            set { annee = value; }
-        }
-        public DateTime DateLivraison
-        {
-            get { return dateLivraison; }
-            set { dateLivraison = value; }
-        }
-        #endregion
-
-        #region constructeur du champ privé
-
-       
-
-       /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="client"></param>
-        /// <param name="montant"></param>
-        /// <param name="annee"></param>
-        /// <param name="modele"></param>
-        /// <param name="livraisonDate"></param>
-        public Transaction(int id, string client, decimal montant, int annee, string modele, DateTime livraisonDate
-, string type, string nom, string prenom, string adresse, string codePostal, decimal prix)
-        {
-            this.id = id;
-            Client = client;
-            Montant = montant;
-            Annee = annee;
-            Modele = modele;
-            DateLivraison = livraisonDate;
-            this.type = type;
-            this.nom = nom;
-            this.prenom = prenom;
-            Adresse = adresse;
-            CodePostal = codePostal;
-            Prix = prix;
-         }
-        #endregion
         /// <summary>
-        /// SUrcharge de Transmission de donnée
+        /// Constructeur par défaut
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="client"></param>
-        /// <param name="montant"></param>
-        /// <param name="annee"></param>
-        /// <param name="modele"></param>
-        /// <param name="livraisonDate"></param>
-        public void Enregistrer(int id, string client, decimal montant, int annee, string modele, DateTime livraisonDate,
-             string type, string nom, string prenom, string adresse, string codePostal, decimal prix)
+        public Transaction()
         {
-            this.id = id;
-            Client = client;
-            Montant = montant;
-            Annee = annee;
-            Modele = modele;
-            DateLivraison = livraisonDate;
-            this.type = type;
-            this.nom = nom;
-            this.prenom = prenom;
-            Adresse = adresse;
-            CodePostal = codePostal;
-            Prix = prix;
+            // Génération automatique de l'ID (à améliorer ultérieurement)
+            idInt = new Random().Next(1000, 9999);
 
-
-            Enregistrer();
-
+            InitAnnee();
+            InitModele();
+            InitPrix();
+            InitMarque();
         }
+
         /// <summary>
-        ///  Sauvegarde l'information dans un file
+        /// Constructeur avec paramètres pour initialiser une transaction complète
+        /// </summary>
+        /// <param name="nomPrinc">Nom du client</param>
+        /// <param name="prenomPrinc">Prénom du client</param>
+        /// <param name="adressePrinc">Adresse du client</param>
+        /// <param name="telephonePrinc">Téléphone du client</param>
+        /// <param name="marquePrinc">Marque des Voiture</param>
+        /// <param name="dateLivraisonPrinc">Date de livraison</param>
+        /// <param name="prixPrinc">Prix total</param>
+        public Transaction(string nomPrinc, string prenomPrinc, string adressePrinc,
+                          string telephonePrinc, string marquePrinc,
+                          DateTime dateLivraisonPrinc, decimal prixPrinc)
+        {
+            // Génération automatique de l'ID
+            idInt = new Random().Next(1000, 9999);
+
+            // Initialisation via les propriétés
+            Nom = nomPrinc;
+            Prenom = prenomPrinc;
+            Adresse = adressePrinc;
+            Telephone = telephonePrinc;
+            Marque = marquePrinc;
+            DateLivraison = dateLivraisonPrinc;
+            Prix = prixPrinc;
+        }
+
+        #endregion
+
+        #region Méthodes
+
+        /// <summary>
+        /// Enregistre la transaction courante dans le système
         /// </summary>
         public void Enregistrer()
         {
-            Console.WriteLine(Client, Id, Montant, Modele, annee);
+            Console.WriteLine("=== Transaction Enregistrée ===");
+            Console.WriteLine($"ID: {ID}");
+            Console.WriteLine($"Client: {Prenom} {Nom}");
+            Console.WriteLine($"Adresse: {Adresse}");
+            Console.WriteLine($"Téléphone: {Telephone}");
+            Console.WriteLine($"Marque: {Marque}");
+            Console.WriteLine($"Date de livraison: {DateLivraison:dd/MM/yyyy}");
+            Console.WriteLine($"Prix total: {Prix:C}");
+            Console.WriteLine("==============================");
         }
-        
+
+        /// <summary>
+        /// Enregistre une transaction avec les paramètres fournis
+        /// </summary>
+        /// <param name="nomPrinc">Nom du client</param>
+        /// <param name="prenomPrinc">Prénom du client</param>
+        /// <param name="adressePrinc">Adresse du client</param>
+        /// <param name="telephonePrinc">Téléphone du client</param>
+        /// <param name="marquePrinc">Marque des Voiture</param>
+        /// <param name="dateLivraisonPrinc">Date de livraison</param>
+        /// <param name="prixPrinc">Prix total</param>
+        public void Enregistrer(string nomPrinc, string prenomPrinc, string adressePrinc,
+                               string telephonePrinc, string marquePrinc,
+                               DateTime dateLivraisonPrinc, decimal prixPrinc)
+        {
+            // Initialisation via les propriétés
+            Nom = nomPrinc;
+            Prenom = prenomPrinc;
+            Adresse = adressePrinc;
+            Telephone = telephonePrinc;
+            Marque = marquePrinc;
+            DateLivraison = dateLivraisonPrinc;
+            Prix = prixPrinc;
+
+            // Appel de la méthode Enregistrer sans paramètre
+            Enregistrer();
+        }
+
+        #endregion
     }
 }

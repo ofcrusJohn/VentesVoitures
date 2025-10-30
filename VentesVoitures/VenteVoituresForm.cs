@@ -158,25 +158,116 @@ namespace VentesVoitures
         #region Enregistrer Fichier Ibrahima 
         private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Try catch de validation 
             try
             {
+                // Étape 1 : Validation des champs
                 ValidationControle();
 
+                // Étape 2 : Récupération et nettoyage des données
+                string nom = nomTextBox?.Text?.Trim() ?? string.Empty;
+                string prenom = prenomTextBox?.Text?.Trim() ?? string.Empty;
+                string adresse = adresseMaskedTextBox?.Text?.Trim() ?? string.Empty;
+                string telephone = telephoneMaskedTextBox?.Text?.Trim() ?? string.Empty;
+                string marque = marqueComboBox?.Text?.Trim() ?? string.Empty;
+                string modele = modeleComboBox?.Text?.Trim() ?? string.Empty;
+                string typeVoiture = typeVoitureComboBox?.Text?.Trim() ?? string.Empty;
+
+                // Étape 4 : Conversion du prix
+                decimal prix = 0;
+                string prixTexte = prixTextBox?.Text?.Replace("C$", "").Replace("$", "").Trim() ?? "0";
+                if (!decimal.TryParse(prixTexte, out prix) || prix <= 0)
+                {
+                    MessageBox.Show("Le prix est invalide ou manquant.",
+                                    "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
 
-                //TO DO LIST JERRY 
 
-                //Transmission de données technique 1 
-                //Technique 2 : Transmettre donnée (voir pseudo code phase C)
-                //Technique 3: Transmettre donnée (voir pseudo code phase C)
+
+                // Étape 5 : Récupération de la date de livraison
+                DateTime dateLivraison = livraisonDateTimePicker.Value;
+                if (dateLivraison < DateTime.Today)
+                {
+                    MessageBox.Show("La date de livraison ne peut pas être antérieure à aujourd'hui.",
+                                    "Erreur de date", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // ============= Version 1 =============
+                // Étape 6 : Création et enregistrement de la transaction
+                Transaction oTransaction = new Transaction(
+                    nom,
+                    prenom,
+                    adresse,
+                    telephone,
+                    marque,
+                    dateLivraison,
+                    prix
+                );
+
+                // Appel de la méthode Enregistrer()
+                oTransaction.Enregistrer();
+
+
+                // ============= Version 2 =============
+                // Création de l'objet Transaction avec tous les paramètres
+                Transaction oTrans1 = new Transaction(nom, prenom, adresse, telephone,
+                                                     marque, dateLivraison, prix);
+
+                // Appel de la méthode Enregistrer sans paramètre
+                oTrans1.Enregistrer();
+
+
+                // ============= Version 3 =============
+                // Création d'un objet Transaction vide
+                Transaction oTrans2 = new Transaction();
+
+                // Affectation des valeurs via les propriétés
+                oTrans2.Nom = nom;
+                oTrans2.Prenom = prenom;
+                oTrans2.Adresse = adresse;
+                oTrans2.Telephone = telephone;
+                oTrans2.Marque = marque;
+                oTrans2.DateLivraison = dateLivraison;
+                oTrans2.Prix = prix;
+
+                // Appel de la méthode Enregistrer sans paramètre
+                oTrans2.Enregistrer();
+
+                // Étape 7 : Message de confirmation
+                MessageBox.Show("La transaction a été enregistrée avec succès !",
+                                "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Étape 8 : Réinitialisation du formulaire
+                nomTextBox.Clear();
+                prenomTextBox.Clear();
+                adresseMaskedTextBox.Clear();
+                telephoneMaskedTextBox.Clear();
+                prixTextBox.Clear();
+                marqueComboBox.SelectedIndex = 0;
+                modeleComboBox.SelectedIndex = 0;
+                anneeComboBox.SelectedIndex = 0;
+                typeVoitureComboBox.SelectedIndex = 0;
+                livraisonDateTimePicker.Value = DateTime.Today;
             }
             catch (ArgumentException ex)
             {
-
-                MessageBox.Show("Erreur de validation" + ex);
+                MessageBox.Show("Erreur de validation : " + ex.Message,
+                                "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Erreur de format : " + ex.Message,
+                                "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Une erreur inattendue est survenue : " + ex.Message,
+                                "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         #endregion
 

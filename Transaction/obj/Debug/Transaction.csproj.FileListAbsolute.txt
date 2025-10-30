@@ -22,3 +22,9 @@ C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.csp
 C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.csproj.CoreCompileInputs.cache
 C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.dll
 C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.pdb
+C:\Users\Jerry 107\source\repos\GIthub\Transaction\bin\Debug\Transaction.dll
+C:\Users\Jerry 107\source\repos\GIthub\Transaction\bin\Debug\Transaction.pdb
+C:\Users\Jerry 107\source\repos\GIthub\Transaction\obj\Debug\Transaction.csproj.AssemblyReference.cache
+C:\Users\Jerry 107\source\repos\GIthub\Transaction\obj\Debug\Transaction.csproj.CoreCompileInputs.cache
+C:\Users\Jerry 107\source\repos\GIthub\Transaction\obj\Debug\Transaction.dll
+C:\Users\Jerry 107\source\repos\GIthub\Transaction\obj\Debug\Transaction.pdb
