@@ -13,6 +13,7 @@ namespace TransactionNS
         private string[] tModele;
         private string[] tAnnee;
         private decimal[,] tPrix;
+        private string[] tMarque;
 
 
         #endregion
@@ -24,6 +25,11 @@ namespace TransactionNS
         {
             tModele = new string[7] { "CX-3", "Altima", "Elantra", "Primera", "Rav4", "Focus","Civic" };
 
+        }
+
+        private void InitMarque()
+        {
+            tMarque = new string[5] { "Peugeot", "Renault", "Dacia", "Volkswagen", "Citroen" };
         }
         private void InitAnnee()
         {
@@ -69,6 +75,7 @@ namespace TransactionNS
             InitAnnee();
             InitModele();
             InitPrix();
+            InitMarque();
         }
         #endregion
 
@@ -81,6 +88,11 @@ namespace TransactionNS
         public string[] GetModel()
         {
             return tModele;
+        }
+
+        public string[] GetMarque()
+        {
+            return tMarque;
         }
 
         //Surcharge GetPrix
@@ -151,6 +163,15 @@ namespace TransactionNS
         private string modele;
         private int annee;
         private DateTime dateLivraison;
+        private string Nom;
+        private string Prenom;
+        private string adresse;
+        private string codePostal;
+        private string Phone;
+        private string TypeDeVoiture;
+        private string marque;
+        private decimal prix;
+
         #endregion
 
         #region Getters et setters
@@ -158,7 +179,50 @@ namespace TransactionNS
         {
             get { return id; }
 
+
         }
+        public string type
+        { 
+           get {return TypeDeVoiture; }
+            set { TypeDeVoiture = value; }
+        }
+
+
+        public string nom
+        {
+            get { return Nom; }
+            set { Nom = value; }
+        }
+
+        public string prenom
+        {
+            get { return Prenom; }
+            set { Prenom = value; }
+        }
+        public string Adresse
+        {
+            get { return adresse; }
+            set { adresse = value; }
+        }
+        public string CodePostal
+        {
+            get { return codePostal; }
+            set { codePostal = value; }
+        }
+        public decimal Prix
+        {
+            get { return prix; }
+            set { prix = value; }
+        }
+      
+        public string phone
+        {
+            get { return Phone; }
+            set { Phone = value; }
+        }
+
+
+
         public decimal Montant
         {
             get { return montant; }
@@ -191,15 +255,16 @@ namespace TransactionNS
        
 
        /// <summary>
-       /// 
-       /// </summary>
-       /// <param name="id"></param>
-       /// <param name="client"></param>
-       /// <param name="montant"></param>
-       /// <param name="annee"></param>
-       /// <param name="modele"></param>
-       /// <param name="livraisonDate"></param>
-        public Transaction(int id, string client, decimal montant, int annee, string modele, DateTime livraisonDate)
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="client"></param>
+        /// <param name="montant"></param>
+        /// <param name="annee"></param>
+        /// <param name="modele"></param>
+        /// <param name="livraisonDate"></param>
+        public Transaction(int id, string client, decimal montant, int annee, string modele, DateTime livraisonDate
+, string type, string nom, string prenom, string adresse, string codePostal, decimal prix)
         {
             this.id = id;
             Client = client;
@@ -207,7 +272,13 @@ namespace TransactionNS
             Annee = annee;
             Modele = modele;
             DateLivraison = livraisonDate;
-        }
+            this.type = type;
+            this.nom = nom;
+            this.prenom = prenom;
+            Adresse = adresse;
+            CodePostal = codePostal;
+            Prix = prix;
+         }
         #endregion
         /// <summary>
         /// SUrcharge de Transmission de donnée
@@ -218,7 +289,8 @@ namespace TransactionNS
         /// <param name="annee"></param>
         /// <param name="modele"></param>
         /// <param name="livraisonDate"></param>
-        public void Enregistrer(int id, string client, decimal montant, int annee, string modele, DateTime livraisonDate)
+        public void Enregistrer(int id, string client, decimal montant, int annee, string modele, DateTime livraisonDate,
+             string type, string nom, string prenom, string adresse, string codePostal, decimal prix)
         {
             this.id = id;
             Client = client;
@@ -226,6 +298,12 @@ namespace TransactionNS
             Annee = annee;
             Modele = modele;
             DateLivraison = livraisonDate;
+            this.type = type;
+            this.nom = nom;
+            this.prenom = prenom;
+            Adresse = adresse;
+            CodePostal = codePostal;
+            Prix = prix;
 
 
             Enregistrer();

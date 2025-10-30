@@ -58,6 +58,8 @@
             this.dateLivraisonLabel = new System.Windows.Forms.Label();
             this.enregistrerButton = new System.Windows.Forms.Button();
             this.quitterButton = new System.Windows.Forms.Button();
+            this.marqueTextBox = new System.Windows.Forms.Label();
+            this.marqueComboBox = new System.Windows.Forms.ComboBox();
             this.venteMenuMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.clientGroupBox.SuspendLayout();
@@ -88,7 +90,7 @@
             // enregistrerToolStripMenuItem
             // 
             this.enregistrerToolStripMenuItem.Name = "enregistrerToolStripMenuItem";
-            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.enregistrerToolStripMenuItem.Text = "Enregistrer ";
             this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.enregistrerToolStripMenuItem_Click);
             // 
@@ -120,6 +122,8 @@
             // 
             // clientGroupBox
             // 
+            this.clientGroupBox.Controls.Add(this.marqueComboBox);
+            this.clientGroupBox.Controls.Add(this.marqueTextBox);
             this.clientGroupBox.Controls.Add(this.adresseMaskedTextBox);
             this.clientGroupBox.Controls.Add(this.codePostalMaskedTextBox);
             this.clientGroupBox.Controls.Add(this.telephoneMaskedTextBox);
@@ -369,6 +373,25 @@
             this.quitterButton.UseVisualStyleBackColor = true;
             this.quitterButton.Click += new System.EventHandler(this.Quitter_click);
             // 
+            // marqueTextBox
+            // 
+            this.marqueTextBox.AutoSize = true;
+            this.marqueTextBox.Location = new System.Drawing.Point(47, 340);
+            this.marqueTextBox.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.marqueTextBox.Name = "marqueTextBox";
+            this.marqueTextBox.Size = new System.Drawing.Size(70, 20);
+            this.marqueTextBox.TabIndex = 15;
+            this.marqueTextBox.Text = "Marque:";
+            // 
+            // marqueComboBox
+            // 
+            this.marqueComboBox.FormattingEnabled = true;
+            this.marqueComboBox.Location = new System.Drawing.Point(201, 337);
+            this.marqueComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.marqueComboBox.Name = "marqueComboBox";
+            this.marqueComboBox.Size = new System.Drawing.Size(352, 24);
+            this.marqueComboBox.TabIndex = 16;
+            // 
             // VenteVoituresForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -429,6 +452,8 @@
         private System.Windows.Forms.MaskedTextBox telephoneMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox codePostalMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox adresseMaskedTextBox;
+        private System.Windows.Forms.Label marqueTextBox;
+        private System.Windows.Forms.ComboBox marqueComboBox;
     }
 }
 

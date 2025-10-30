@@ -50,9 +50,12 @@ namespace VentesVoitures
 
                 anneeComboBox.Items.AddRange(otransac.GetAnnee());
 
+                marqueComboBox.Items.AddRange(otransac.GetMarque());
+
                 modeleComboBox.SelectedIndex = 0;
                 anneeComboBox.SelectedIndex = 0;
                 typeVoitureComboBox.SelectedIndex = 0;
+                marqueComboBox.SelectedIndex = 0;
 
             }
             catch (ArgumentOutOfRangeException es)
@@ -144,6 +147,8 @@ namespace VentesVoitures
         
             if (typeVoitureComboBox.SelectedIndex == -1)
                 MessageBox.Show("Type de voirture éronné");
+            if (marqueComboBox.SelectedIndex == -1)
+                MessageBox.Show("Marque éronnée");
            
         }
         #endregion
@@ -159,6 +164,12 @@ namespace VentesVoitures
                 ValidationControle();
 
 
+
+                //TO DO LIST JERRY 
+
+                //Transmission de données technique 1 
+                //Technique 2 : Transmettre donnée (voir pseudo code phase C)
+                //Technique 3: Transmettre donnée (voir pseudo code phase C)
             }
             catch (ArgumentException ex)
             {
