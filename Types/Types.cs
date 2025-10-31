@@ -1,4 +1,17 @@
-﻿using System;
+﻿/*
+    Programmeur:    Jean De La Croix Haba,Jerry Bostel Dountio Douanla,Ibrahima Elimane Dosso
+    Date:           Septembre
+  
+    Solution:     VentesVoitures
+    Projet:       VentesVoitures.csproj
+
+    Namespace:      {typesNs}
+  
+*/
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +24,7 @@ namespace TypesNs
     public enum CodesTypes
     {
         Types = 0,
-        Modeles = 1
+        Marques = 1
     }
     #endregion
 
@@ -24,7 +37,7 @@ namespace TypesNs
         private string[] tTypes;
 
         /// Tableau contenant les modèles de voitures
-        private string[] tModeles;
+        private string[] tMarques;
 
         #endregion
 
@@ -34,7 +47,7 @@ namespace TypesNs
         public Types()
         {
             InitTypes();
-            InitModeles();
+            InitMarques();
         }
 
         #endregion
@@ -57,23 +70,9 @@ namespace TypesNs
         }
 
         /// Initialise le tableau des modèles de voitures
-        private void InitModeles()
+        private void InitMarques()
         {
-            tModeles = new string[]
-            {
-                "Civic",
-                "Accord",
-                "CR-V",
-                "Pilot",
-                "Odyssey",
-                "F-150",
-                "Silverado",
-                "Ram 1500",
-                "Corolla",
-                "Camry",
-                "RAV4",
-                "Highlander"
-            };
+            tMarques = new string[5] { "Peugeot", "Renault", "Dacia", "Volkswagen", "Citroen" };
         }
 
         #endregion
@@ -81,15 +80,15 @@ namespace TypesNs
         #region Méthodes publiques
 
         /// Retourne le tableau de types ou de modèles selon le paramètre spécifié
-        public string[] GetTypesModeles(CodesTypes type)
+        public string[] GetTypesMarques(CodesTypes type)
         {
             switch (type)
             {
                 case CodesTypes.Types:
                     return tTypes;
 
-                case CodesTypes.Modeles:
-                    return tModeles;
+                case CodesTypes.Marques:
+                    return tMarques;
 
                 default:
                     throw new ArgumentOutOfRangeException(
