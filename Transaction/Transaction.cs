@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+    Programmeur:   Jean De La Croix Haba, Jerry Bostel Dountio Douanla, Ibrahima Elimane Dosso
+    Date:           Septembre
+
+    Solution:     VentesVoitures
+    Projet:       VentesVoitures.csproj
+
+    Namespace:    {TransactionNS}
+*/
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +36,7 @@ namespace TransactionNS
         private string[] tModele;
         private string[] tAnnee;
         private decimal[,] tPrix;
-        private string[] tMarque;
+        
 
 
         #endregion
@@ -39,10 +50,7 @@ namespace TransactionNS
 
         }
 
-        private void InitMarque()
-        {
-            tMarque = new string[5] { "Peugeot", "Renault", "Dacia", "Volkswagen", "Citroen" };
-        }
+       
         private void InitAnnee()
         {
             tAnnee = new string[10] { "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025" };
@@ -76,7 +84,6 @@ namespace TransactionNS
         }
 
         #endregion
-
 
         #region Propriétés
 
@@ -125,15 +132,6 @@ namespace TransactionNS
         }
 
         /// <summary>
-        /// Obtient ou définit la marque des Voiture
-        /// </summary>
-        public string Marque
-        {
-            get { return marqueStr; }
-            set { marqueStr = value; }
-        }
-
-        /// <summary>
         /// Obtient ou définit la date de livraison prévue
         /// </summary>
         public DateTime DateLivraison
@@ -162,10 +160,7 @@ namespace TransactionNS
             return tModele;
         }
 
-        public string[] GetMarque()
-        {
-            return tMarque;
-        }
+       
 
 
         /// <summary>
@@ -229,7 +224,7 @@ namespace TransactionNS
             InitAnnee();
             InitModele();
             InitPrix();
-            InitMarque();
+            
         }
 
         /// <summary>
@@ -243,8 +238,7 @@ namespace TransactionNS
         /// <param name="dateLivraisonPrinc">Date de livraison</param>
         /// <param name="prixPrinc">Prix total</param>
         public Transaction(string nomPrinc, string prenomPrinc, string adressePrinc,
-                          string telephonePrinc, string marquePrinc,
-                          DateTime dateLivraisonPrinc, decimal prixPrinc)
+                          string telephonePrinc,DateTime dateLivraisonPrinc, decimal prixPrinc)
         {
             // Génération automatique de l'ID
             idInt = new Random().Next(1000, 9999);
@@ -254,7 +248,6 @@ namespace TransactionNS
             Prenom = prenomPrinc;
             Adresse = adressePrinc;
             Telephone = telephonePrinc;
-            Marque = marquePrinc;
             DateLivraison = dateLivraisonPrinc;
             Prix = prixPrinc;
         }
@@ -273,7 +266,6 @@ namespace TransactionNS
             Console.WriteLine($"Client: {Prenom} {Nom}");
             Console.WriteLine($"Adresse: {Adresse}");
             Console.WriteLine($"Téléphone: {Telephone}");
-            Console.WriteLine($"Marque: {Marque}");
             Console.WriteLine($"Date de livraison: {DateLivraison:dd/MM/yyyy}");
             Console.WriteLine($"Prix total: {Prix:C}");
             Console.WriteLine("==============================");
@@ -298,7 +290,6 @@ namespace TransactionNS
             Prenom = prenomPrinc;
             Adresse = adressePrinc;
             Telephone = telephonePrinc;
-            Marque = marquePrinc;
             DateLivraison = dateLivraisonPrinc;
             Prix = prixPrinc;
 

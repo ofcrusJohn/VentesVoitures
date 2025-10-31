@@ -28,3 +28,9 @@ C:\Users\Jerry 107\source\repos\GIthub\Transaction\obj\Debug\Transaction.csproj.
 C:\Users\Jerry 107\source\repos\GIthub\Transaction\obj\Debug\Transaction.csproj.CoreCompileInputs.cache
 C:\Users\Jerry 107\source\repos\GIthub\Transaction\obj\Debug\Transaction.dll
 C:\Users\Jerry 107\source\repos\GIthub\Transaction\obj\Debug\Transaction.pdb
+C:\Users\habaj\source\repos\VentesVoitures\Transaction\bin\Debug\Transaction.dll
+C:\Users\habaj\source\repos\VentesVoitures\Transaction\bin\Debug\Transaction.pdb
+C:\Users\habaj\source\repos\VentesVoitures\Transaction\obj\Debug\Transaction.csproj.AssemblyReference.cache
+C:\Users\habaj\source\repos\VentesVoitures\Transaction\obj\Debug\Transaction.csproj.CoreCompileInputs.cache
+C:\Users\habaj\source\repos\VentesVoitures\Transaction\obj\Debug\Transaction.dll
+C:\Users\habaj\source\repos\VentesVoitures\Transaction\obj\Debug\Transaction.pdb
