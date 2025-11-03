@@ -118,37 +118,37 @@ namespace VentesVoitures
         #region validation des contrôles
         private void ValidationControle()
         {
-            //Validation de tous les contrôles
-            if (string.IsNullOrEmpty(prixTextBox.Text))
-                MessageBox.Show("Le prix est obligatoire");
-            if (anneeComboBox.SelectedIndex == -1)
-                MessageBox.Show("l'annee est obligatoire");
+            ////Validation de tous les contrôles
+            //if (string.IsNullOrEmpty(prixTextBox.Text))
+            //    MessageBox.Show("Le prix est obligatoire");
+            //if (anneeComboBox.SelectedIndex == -1)
+            //    MessageBox.Show("l'annee est obligatoire");
                
-            if (modeleComboBox.SelectedIndex == -1)
-                MessageBox.Show("le modele est obligatoire");
+            //if (modeleComboBox.SelectedIndex == -1)
+            //    MessageBox.Show("le modele est obligatoire");
          
-            if (string.IsNullOrEmpty(nomTextBox.Text))
-                MessageBox.Show("le nom est obligatoire");
+            //if (string.IsNullOrEmpty(nomTextBox.Text))
+            //    MessageBox.Show("le nom est obligatoire");
           
-            if (string.IsNullOrEmpty(prenomTextBox.Text))
-                MessageBox.Show("le prenom est obligatoire");
+            //if (string.IsNullOrEmpty(prenomTextBox.Text))
+            //    MessageBox.Show("le prenom est obligatoire");
             
-            if (string.IsNullOrEmpty(adresseMaskedTextBox.Text))
-                MessageBox.Show("l'adresse est obligatoire");
+            //if (string.IsNullOrEmpty(adresseMaskedTextBox.Text))
+            //    MessageBox.Show("l'adresse est obligatoire");
           
-            if (string.IsNullOrEmpty(codePostalMaskedTextBox.Text))
-                MessageBox.Show("le code postal est obligatoire");
+            //if (string.IsNullOrEmpty(codePostalMaskedTextBox.Text))
+            //    MessageBox.Show("le code postal est obligatoire");
          
-            if (string.IsNullOrEmpty(telephoneMaskedTextBox.Text))
-                MessageBox.Show("le telephone est obligatoire");
+            //if (string.IsNullOrEmpty(telephoneMaskedTextBox.Text))
+            //    MessageBox.Show("le telephone est obligatoire");
         
-            if (livraisonDateTimePicker.Value.Date < DateTime.Today)
-                MessageBox.Show("Date de livraison éronné");
+            //if (livraisonDateTimePicker.Value.Date < DateTime.Today)
+            //    MessageBox.Show("Date de livraison éronné");
         
-            if (typeVoitureComboBox.SelectedIndex == -1)
-                MessageBox.Show("Type de voirture éronné");
-            if (marqueComboBox.SelectedIndex == -1)
-                MessageBox.Show("Marque éronnée");
+            //if (typeVoitureComboBox.SelectedIndex == -1)
+            //    MessageBox.Show("Type de voirture éronné");
+            //if (marqueComboBox.SelectedIndex == -1)
+            //    MessageBox.Show("Marque éronnée");
            
         }
         #endregion
