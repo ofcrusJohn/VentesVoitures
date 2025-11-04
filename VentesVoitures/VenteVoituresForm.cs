@@ -15,14 +15,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TransactionNS;
 using TypesNs;
-using g = VentesVoitures.VentesVoituresGeneraleClass;
 using ce = VentesVoitures.VentesVoituresGeneraleClass.CodesErreurs;
+using g = VentesVoitures.VentesVoituresGeneraleClass;
 
 namespace VentesVoitures
 {
@@ -70,7 +71,8 @@ namespace VentesVoitures
                 livraisonDateTimePicker.Value = DateTime.Today;
 
                 // Masquer le label de paiement au départ
-                datePaiementLabel.Visible = false;
+                paiementDuTitreLabel.Visible = false;
+                paiementDuLabel.Visible = false;
             }
             catch (ArgumentOutOfRangeException es)
             {
@@ -240,7 +242,7 @@ namespace VentesVoitures
         #endregion
 
         #region Enregistrer Fichier
-        private void EnregistrerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void fcherToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -263,8 +265,8 @@ namespace VentesVoitures
 
                 // Étape 3 : Conversion du prix
                 decimal prix = 0;
-                string prixTexte = prixTextBox.Text.Replace("C$", "").Replace("$", "").Replace(" ", "").Trim();
-                if (!decimal.TryParse(prixTexte, out prix) || prix <= 0)
+                string prixTexte = prixTextBox.Text.Trim();
+                if (!decimal.TryParse(prixTexte, NumberStyles.Currency, CultureInfo.CurrentCulture, out prix) || prix <= 0)
                 {
                     MessageBox.Show("Le prix est invalide ou manquant.",
                                     "Erreur de saisie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -297,8 +299,13 @@ namespace VentesVoitures
 
                 // Étape 7 : Récupérer et afficher la date de paiement
                 DateTime dateDuePaiement = transactionEnCours.DateDuePaiement;
-                datePaiementLabel.Text = "Date due du paiement : " + dateDuePaiement.ToString("D");
-                datePaiementLabel.Visible = true;
+                paiementDuLabel.Text =dateDuePaiement.ToString("D");
+
+                paiementDuLabel.Visible = true;
+                paiementDuTitreLabel.Visible=true;
+
+                //afficher dans le label la date de paiement dû
+
 
                 // Étape 8 : Message de confirmation
                 MessageBox.Show("La transaction a été enregistrée avec succès !\n\n" +
@@ -358,8 +365,8 @@ namespace VentesVoitures
             // Réinitialiser le DateTimePicker
             livraisonDateTimePicker.Value = DateTime.Today;
 
-            // Masquer le label de date de paiement
-            datePaiementLabel.Visible = false;
+            //// Masquer le label de date de paiement
+            //datePaiementLabel.Visible = false;
 
             // Remettre le focus sur le premier champ
             nomTextBox.Focus();
@@ -395,8 +402,8 @@ namespace VentesVoitures
                 // Date invalide - réinitialiser à aujourd'hui
                 livraisonDateTimePicker.Value = DateTime.Today;
                 livraisonDateTimePicker.Format = DateTimePickerFormat.Long;
-                MessageBox.Show(
-                    "La date doit être dans les 15 jours avant ou après aujourd'hui.",
+                MessageBox.Show("Erreur s'est produit pendant l'enregistrement.Communiquer avec la personne ressource."+
+                    "La date doitse situer dans les 15 jours avant ou après la date d'aujourd'hui.",
                     "Date invalide",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
@@ -405,5 +412,7 @@ namespace VentesVoitures
             }
         }
         #endregion
+
+      
     }
 }
