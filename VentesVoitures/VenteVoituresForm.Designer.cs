@@ -60,6 +60,9 @@
             this.dateLivraisonLabel = new System.Windows.Forms.Label();
             this.enregistrerButton = new System.Windows.Forms.Button();
             this.quitterButton = new System.Windows.Forms.Button();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.paiementDuTitreLabel = new System.Windows.Forms.Label();
+            this.paiementDuLabel = new System.Windows.Forms.Label();
             this.venteMenuMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.clientGroupBox.SuspendLayout();
@@ -93,7 +96,7 @@
             this.enregistrerToolStripMenuItem.Name = "enregistrerToolStripMenuItem";
             this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.enregistrerToolStripMenuItem.Text = "Enregistrer ";
-            this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.EnregistrerToolStripMenuItem_Click);
+            this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.fcherToolStripMenuItem_Click);
             // 
             // aideToolStripMenuItem
             // 
@@ -106,7 +109,7 @@
             // aProposToolStripMenuItem
             // 
             this.aProposToolStripMenuItem.Name = "aProposToolStripMenuItem";
-            this.aProposToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aProposToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.aProposToolStripMenuItem.Text = "À propos";
             this.aProposToolStripMenuItem.Click += new System.EventHandler(this.AProposToolStripMenuItem_Click);
             // 
@@ -164,7 +167,6 @@
             // 
             this.adresseMaskedTextBox.Location = new System.Drawing.Point(151, 100);
             this.adresseMaskedTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.adresseMaskedTextBox.Mask = "00000000000000";
             this.adresseMaskedTextBox.Name = "adresseMaskedTextBox";
             this.adresseMaskedTextBox.Size = new System.Drawing.Size(265, 20);
             this.adresseMaskedTextBox.TabIndex = 6;
@@ -174,7 +176,7 @@
             // 
             this.codePostalMaskedTextBox.Location = new System.Drawing.Point(151, 139);
             this.codePostalMaskedTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.codePostalMaskedTextBox.Mask = "00000";
+            this.codePostalMaskedTextBox.Mask = "L0L-0L0";
             this.codePostalMaskedTextBox.Name = "codePostalMaskedTextBox";
             this.codePostalMaskedTextBox.Size = new System.Drawing.Size(265, 20);
             this.codePostalMaskedTextBox.TabIndex = 6;
@@ -184,7 +186,7 @@
             // 
             this.telephoneMaskedTextBox.Location = new System.Drawing.Point(151, 179);
             this.telephoneMaskedTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.telephoneMaskedTextBox.Mask = "00 00 00 00 00 00";
+            this.telephoneMaskedTextBox.Mask = "(000) 000 0000";
             this.telephoneMaskedTextBox.Name = "telephoneMaskedTextBox";
             this.telephoneMaskedTextBox.Size = new System.Drawing.Size(265, 20);
             this.telephoneMaskedTextBox.TabIndex = 6;
@@ -268,6 +270,8 @@
             // 
             // transactionGroupBox
             // 
+            this.transactionGroupBox.Controls.Add(this.paiementDuLabel);
+            this.transactionGroupBox.Controls.Add(this.paiementDuTitreLabel);
             this.transactionGroupBox.Controls.Add(this.prixLabel);
             this.transactionGroupBox.Controls.Add(this.anneeLabel);
             this.transactionGroupBox.Controls.Add(this.modeleLabel);
@@ -278,7 +282,7 @@
             this.transactionGroupBox.Controls.Add(this.dateLivraisonLabel);
             this.transactionGroupBox.Location = new System.Drawing.Point(446, 286);
             this.transactionGroupBox.Name = "transactionGroupBox";
-            this.transactionGroupBox.Size = new System.Drawing.Size(375, 183);
+            this.transactionGroupBox.Size = new System.Drawing.Size(375, 220);
             this.transactionGroupBox.TabIndex = 3;
             this.transactionGroupBox.TabStop = false;
             this.transactionGroupBox.Text = "Transaction";
@@ -341,6 +345,7 @@
             this.livraisonDateTimePicker.Name = "livraisonDateTimePicker";
             this.livraisonDateTimePicker.Size = new System.Drawing.Size(216, 20);
             this.livraisonDateTimePicker.TabIndex = 1;
+            this.livraisonDateTimePicker.Validating += new System.ComponentModel.CancelEventHandler(this.livraisonDateTimePicker_Validating);
             // 
             // dateLivraisonLabel
             // 
@@ -353,22 +358,43 @@
             // 
             // enregistrerButton
             // 
-            this.enregistrerButton.Location = new System.Drawing.Point(446, 496);
+            this.enregistrerButton.Location = new System.Drawing.Point(446, 515);
             this.enregistrerButton.Name = "enregistrerButton";
-            this.enregistrerButton.Size = new System.Drawing.Size(182, 92);
+            this.enregistrerButton.Size = new System.Drawing.Size(182, 73);
             this.enregistrerButton.TabIndex = 4;
             this.enregistrerButton.Text = "&Enregistrer";
             this.enregistrerButton.UseVisualStyleBackColor = true;
+            this.enregistrerButton.Click += new System.EventHandler(this.fcherToolStripMenuItem_Click);
             // 
             // quitterButton
             // 
-            this.quitterButton.Location = new System.Drawing.Point(639, 496);
+            this.quitterButton.Location = new System.Drawing.Point(634, 512);
             this.quitterButton.Name = "quitterButton";
-            this.quitterButton.Size = new System.Drawing.Size(182, 92);
+            this.quitterButton.Size = new System.Drawing.Size(187, 76);
             this.quitterButton.TabIndex = 5;
             this.quitterButton.Text = "&Quitter";
             this.quitterButton.UseVisualStyleBackColor = true;
             this.quitterButton.Click += new System.EventHandler(this.Quitter_click);
+            // 
+            // paiementDuTitreLabel
+            // 
+            this.paiementDuTitreLabel.AutoSize = true;
+            this.paiementDuTitreLabel.Location = new System.Drawing.Point(36, 194);
+            this.paiementDuTitreLabel.Name = "paiementDuTitreLabel";
+            this.paiementDuTitreLabel.Size = new System.Drawing.Size(80, 13);
+            this.paiementDuTitreLabel.TabIndex = 8;
+            this.paiementDuTitreLabel.Text = "Paiement dû le:";
+            this.paiementDuTitreLabel.Visible = false;
+            // 
+            // paiementDuLabel
+            // 
+            this.paiementDuLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.paiementDuLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.paiementDuLabel.Location = new System.Drawing.Point(131, 193);
+            this.paiementDuLabel.Name = "paiementDuLabel";
+            this.paiementDuLabel.Size = new System.Drawing.Size(207, 20);
+            this.paiementDuLabel.TabIndex = 9;
+            this.paiementDuLabel.Visible = false;
             // 
             // VenteVoituresForm
             // 
@@ -431,6 +457,9 @@
         private System.Windows.Forms.MaskedTextBox adresseMaskedTextBox;
         private System.Windows.Forms.Label marqueTextBox;
         private System.Windows.Forms.ComboBox marqueComboBox;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.Label paiementDuLabel;
+        private System.Windows.Forms.Label paiementDuTitreLabel;
     }
 }
 
