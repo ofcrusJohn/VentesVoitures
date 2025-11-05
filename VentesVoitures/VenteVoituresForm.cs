@@ -32,6 +32,7 @@ namespace VentesVoitures
         #region Declaration
         private Transaction otransac;
         private Types oTypes;
+       
         #endregion
 
         #region Constructeur
