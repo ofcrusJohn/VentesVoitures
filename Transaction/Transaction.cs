@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 
 namespace TransactionNS
@@ -24,9 +25,22 @@ namespace TransactionNS
     /// </summary>
     public class Transaction
     {
+        #region variables statiques pour tenir compte des numeros de transaction : Phase E  
+        public static int NombreTransactions = 0;
+        #endregion
+
         #region Champs privés pour les dates
         private DateTime dateLivraisonDateTime;
         private DateTime datePaiementDateTime;
+        #endregion
+
+        #region Declatation des regex : Phase E 
+
+        // Regex pour valider le code postal canadien (format A1A 1A1 ou A1A1A1)
+        private const string REGEX_CODE_POSTAL = "^[A-Za-z]\\d[A-Za-z]\\s?\\d[A-Za-z]\\d$";
+        // Regex pour valider le numéro de téléphone canadien 123-456-7890 
+        private const string REGEX_TELEPHONE = "^\\d{3}-\\d{3}-\\d{4}$";
+
         #endregion
 
         #region Énumération des codes d'erreurs
@@ -144,7 +158,7 @@ namespace TransactionNS
         }
         #endregion
 
-        #region Propriétés avec validation
+        #region Propriétés avec validation : Ajout Phase E
 
         /// <summary>
         /// Obtient l'identifiant unique de la transaction (lecture seule)
@@ -271,6 +285,15 @@ namespace TransactionNS
                 {
                     throw new ArgumentNullException(tMessagesErreurs[(int)CodesErreurs.CodePostalObligatoire]);
                 }
+
+                // Validation du format du code postal canadien
+
+                #region Validation sans regex : Phase E
+                if (!Regex.IsMatch(value, REGEX_CODE_POSTAL))
+                {
+                    throw new ArgumentException("Le format du code postal est invalide. Il doit être au format A1A 1A1 ou A1A1A1.");
+                }
+                #endregion
             }
         }
 
@@ -301,6 +324,15 @@ namespace TransactionNS
                 {
                     throw new ArgumentNullException(tMessagesErreurs[(int)CodesErreurs.TelephoneObligatoire]);
                 }
+
+                // Validation du format du numéro de téléphone canadien
+
+                #region REGEX TELEPHONE : Phase E
+                if (!Regex.IsMatch(value, REGEX_TELEPHONE))
+                {
+                    throw new ArgumentException("Le format du numéro de téléphone est invalide. Il doit être au format 123-456-7890.");
+                }
+                #endregion
             }
         }
 
@@ -637,6 +669,12 @@ namespace TransactionNS
         /// </summary>
         public void Enregistrer()
         {
+            // Incrémenter le nombre de transactions
+
+            #region Incrémentation de  variable statique : Phase E
+            NombreTransactions++;
+            #endregion
+
             Console.WriteLine("=== Transaction Enregistrée ===");
             Console.WriteLine($"ID: {ID}");
             Console.WriteLine($"Client: {Prenom} {Nom}");
@@ -679,5 +717,9 @@ namespace TransactionNS
         }
 
         #endregion
+
+
+
+     
     }
 }
