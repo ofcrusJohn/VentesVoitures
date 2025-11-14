@@ -414,6 +414,5 @@ namespace VentesVoitures
         }
         #endregion
 
-      
     }
 }
