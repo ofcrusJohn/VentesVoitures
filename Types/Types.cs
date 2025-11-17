@@ -6,7 +6,8 @@
     Projet:       VentesVoitures.csproj
 
     Namespace:      {typesNs}
-  
+    
+    BUT: construis la phase h
 */
 
 
