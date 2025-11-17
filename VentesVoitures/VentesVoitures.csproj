@@ -81,6 +81,8 @@
     <None Include="Data\Annee.data" />
     <None Include="Data\Modeles.data" />
     <None Include="Data\Prix.data" />
+    <None Include="Data\Marques.data" />
+    <None Include="Data\Types.data" />
     <None Include="VentesVoituresClassDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -6,11 +6,15 @@
     Projet:       VentesVoitures.csproj
 
     Namespace:      {typesNs}
-  
+    
+    BUT: construis la phase h
 */
+
+
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,8 +48,9 @@ namespace TypesNs
         /// Constructeur par défaut qui initialise les tableaux de types et modèles
         public Types()
         {
-            InitTypes();
             InitMarques();
+            InitTypes();
+
         }
 
         #endregion
@@ -55,22 +60,79 @@ namespace TypesNs
         /// Initialise le tableau des types de voitures
         private void InitTypes()
         {
-            tTypes = new string[]
+            try
             {
-                "Berline",
-                "VUS",
-                "Camionnette",
-                "Sport",
-                "Luxe",
-                "Compacte",
-                "Sous-compacte"
-            };
+                string chemin = "..\\..\\Data\\Types.data";
+                using (StreamReader sw = new StreamReader(chemin)) // UTF-8 BOM
+                {
+                    // 1 - lire le nombre de types
+                    string ligne = sw.ReadLine();
+                    int nombre = int.Parse(ligne);
+
+                    // 2 - créer le tableau à la bonne taille
+                    tTypes = new string[nombre];
+
+                    Console.WriteLine(nombre);
+                    // 3 - Lire chaque type
+                    for (int i = 0; i < nombre; i++)
+                    {
+                        tTypes[i] = sw.ReadLine();
+                    }
+                }
+            }
+            catch (FormatException ex)
+            {
+                throw new FormatException("Erreur dans le fichier des types.", ex);
+            }
+            catch (FileNotFoundException ex)
+            {
+                throw new FileNotFoundException(
+                   "Le fichier des types n'est pas disponible", ex
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur indéterminée. Veuillez contacter la personne ressource.", ex);
+            }
         }
+
 
         /// Initialise le tableau des modèles de voitures
         private void InitMarques()
         {
-            tMarques = new string[5] { "Peugeot", "Renault", "Dacia", "Volkswagen", "Citroen" };
+            try
+            {
+                string chemin = "..\\..\\Data\\Marques.data";
+                using (StreamReader sw = new StreamReader(chemin)) // UTF-8 BOM
+                {
+                    // 1 - lire le nombre de types
+                    string ligne = sw.ReadLine();
+                    int nombre = int.Parse(ligne);
+
+                    // 2 - créer le tableau à la bonne taille
+                    tMarques = new string[nombre];
+
+                    // 3 - Lire chaque type
+                    for (int i = 0; i < nombre; i++)
+                    {
+                        tMarques[i] = sw.ReadLine();
+                    }
+                }
+            }
+            catch (FormatException ex)
+            {
+                throw new FormatException("Erreur dans le fichier des Modeles.", ex);
+            }
+            catch (FileNotFoundException ex)
+            {
+                throw new FileNotFoundException(
+                   "Le fichier des Modeles n'est pas disponible", ex
+                );
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur indéterminée. Veuillez contacter la personne ressource.", ex);
+            }
         }
 
         #endregion
