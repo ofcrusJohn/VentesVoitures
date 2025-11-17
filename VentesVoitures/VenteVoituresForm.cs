@@ -55,6 +55,7 @@ namespace VentesVoitures
                 otransac = new Transaction();
                 oTypes = new Types();
 
+
                 modeleComboBox.Items.AddRange(otransac.GetModel());
 
                 typeVoitureComboBox.Items.AddRange(oTypes.GetTypesMarques(CodesTypes.Types));
@@ -68,12 +69,6 @@ namespace VentesVoitures
                 typeVoitureComboBox.SelectedIndex = 0;
                 marqueComboBox.SelectedIndex = 0;
 
-                // Initialiser le DateTimePicker avec la date d'aujourd'hui
-                livraisonDateTimePicker.Value = DateTime.Today;
-
-                // Masquer le label de paiement au départ
-                paiementDuTitreLabel.Visible = false;
-                paiementDuLabel.Visible = false;
             }
             catch (ArgumentOutOfRangeException es)
             {
@@ -83,6 +78,8 @@ namespace VentesVoitures
             {
                 MessageBox.Show(g.tMessages[(int)ce.ErreurIndeterminee]);
             }
+
+
         }
         #endregion
 
