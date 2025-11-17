@@ -254,7 +254,7 @@ namespace VentesVoitures
                 string nom = nomTextBox.Text.Trim();
                 string prenom = prenomTextBox.Text.Trim();
                 string adresse = adresseMaskedTextBox.Text.Trim();
-                string codePostal = codePostalMaskedTextBox.Text.Trim();
+                string codePostal = codePostalMaskedTextBox.Text.ToUpper().Replace("-", "").Replace(" ", "").Trim();
                 string telephone = telephoneMaskedTextBox.Text.Trim();
                 string marque = marqueComboBox.Text.Trim();
                 string modele = modeleComboBox.Text.Trim();
@@ -364,7 +364,7 @@ namespace VentesVoitures
             livraisonDateTimePicker.Value = DateTime.Today;
 
             //// Masquer le label de date de paiement
-            //datePaiementLabel.Visible = false;
+            paiementDuLabel.Visible = false;
 
             // Remettre le focus sur le premier champ
             nomTextBox.Focus();

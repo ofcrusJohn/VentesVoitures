@@ -50,6 +50,8 @@
             this.prenomTextBox = new System.Windows.Forms.TextBox();
             this.nomTextBox = new System.Windows.Forms.TextBox();
             this.transactionGroupBox = new System.Windows.Forms.GroupBox();
+            this.paiementDuLabel = new System.Windows.Forms.Label();
+            this.paiementDuTitreLabel = new System.Windows.Forms.Label();
             this.prixLabel = new System.Windows.Forms.Label();
             this.anneeLabel = new System.Windows.Forms.Label();
             this.modeleLabel = new System.Windows.Forms.Label();
@@ -61,8 +63,7 @@
             this.enregistrerButton = new System.Windows.Forms.Button();
             this.quitterButton = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            this.paiementDuTitreLabel = new System.Windows.Forms.Label();
-            this.paiementDuLabel = new System.Windows.Forms.Label();
+            this.pageSetupDialog2 = new System.Windows.Forms.PageSetupDialog();
             this.venteMenuMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.clientGroupBox.SuspendLayout();
@@ -94,7 +95,7 @@
             // enregistrerToolStripMenuItem
             // 
             this.enregistrerToolStripMenuItem.Name = "enregistrerToolStripMenuItem";
-            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.enregistrerToolStripMenuItem.Text = "Enregistrer ";
             this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.fcherToolStripMenuItem_Click);
             // 
@@ -166,7 +167,7 @@
             // adresseMaskedTextBox
             // 
             this.adresseMaskedTextBox.Location = new System.Drawing.Point(151, 100);
-            this.adresseMaskedTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.adresseMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.adresseMaskedTextBox.Name = "adresseMaskedTextBox";
             this.adresseMaskedTextBox.Size = new System.Drawing.Size(265, 20);
             this.adresseMaskedTextBox.TabIndex = 6;
@@ -175,7 +176,7 @@
             // codePostalMaskedTextBox
             // 
             this.codePostalMaskedTextBox.Location = new System.Drawing.Point(151, 139);
-            this.codePostalMaskedTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.codePostalMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.codePostalMaskedTextBox.Mask = "L0L-0L0";
             this.codePostalMaskedTextBox.Name = "codePostalMaskedTextBox";
             this.codePostalMaskedTextBox.Size = new System.Drawing.Size(265, 20);
@@ -185,8 +186,8 @@
             // telephoneMaskedTextBox
             // 
             this.telephoneMaskedTextBox.Location = new System.Drawing.Point(151, 179);
-            this.telephoneMaskedTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.telephoneMaskedTextBox.Mask = "(000) 000 0000";
+            this.telephoneMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.telephoneMaskedTextBox.Mask = "(000)-000-0000";
             this.telephoneMaskedTextBox.Name = "telephoneMaskedTextBox";
             this.telephoneMaskedTextBox.Size = new System.Drawing.Size(265, 20);
             this.telephoneMaskedTextBox.TabIndex = 6;
@@ -287,6 +288,26 @@
             this.transactionGroupBox.TabStop = false;
             this.transactionGroupBox.Text = "Transaction";
             // 
+            // paiementDuLabel
+            // 
+            this.paiementDuLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.paiementDuLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.paiementDuLabel.Location = new System.Drawing.Point(131, 193);
+            this.paiementDuLabel.Name = "paiementDuLabel";
+            this.paiementDuLabel.Size = new System.Drawing.Size(207, 20);
+            this.paiementDuLabel.TabIndex = 9;
+            this.paiementDuLabel.Visible = false;
+            // 
+            // paiementDuTitreLabel
+            // 
+            this.paiementDuTitreLabel.AutoSize = true;
+            this.paiementDuTitreLabel.Location = new System.Drawing.Point(36, 194);
+            this.paiementDuTitreLabel.Name = "paiementDuTitreLabel";
+            this.paiementDuTitreLabel.Size = new System.Drawing.Size(80, 13);
+            this.paiementDuTitreLabel.TabIndex = 8;
+            this.paiementDuTitreLabel.Text = "Paiement dû le:";
+            this.paiementDuTitreLabel.Visible = false;
+            // 
             // prixLabel
             // 
             this.prixLabel.AutoSize = true;
@@ -376,26 +397,6 @@
             this.quitterButton.UseVisualStyleBackColor = true;
             this.quitterButton.Click += new System.EventHandler(this.Quitter_click);
             // 
-            // paiementDuTitreLabel
-            // 
-            this.paiementDuTitreLabel.AutoSize = true;
-            this.paiementDuTitreLabel.Location = new System.Drawing.Point(36, 194);
-            this.paiementDuTitreLabel.Name = "paiementDuTitreLabel";
-            this.paiementDuTitreLabel.Size = new System.Drawing.Size(80, 13);
-            this.paiementDuTitreLabel.TabIndex = 8;
-            this.paiementDuTitreLabel.Text = "Paiement dû le:";
-            this.paiementDuTitreLabel.Visible = false;
-            // 
-            // paiementDuLabel
-            // 
-            this.paiementDuLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.paiementDuLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.paiementDuLabel.Location = new System.Drawing.Point(131, 193);
-            this.paiementDuLabel.Name = "paiementDuLabel";
-            this.paiementDuLabel.Size = new System.Drawing.Size(207, 20);
-            this.paiementDuLabel.TabIndex = 9;
-            this.paiementDuLabel.Visible = false;
-            // 
             // VenteVoituresForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -460,6 +461,7 @@
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
         private System.Windows.Forms.Label paiementDuLabel;
         private System.Windows.Forms.Label paiementDuTitreLabel;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog2;
     }
 }
 
