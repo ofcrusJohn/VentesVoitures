@@ -1,0 +1,18 @@
+C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Types\bin\Debug\Types.dll
+C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Types\bin\Debug\Types.pdb
+C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Types\obj\Debug\Types.csproj.AssemblyReference.cache
+C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Types\obj\Debug\Types.csproj.CoreCompileInputs.cache
+C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Types\obj\Debug\Types.dll
+C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Types\obj\Debug\Types.pdb
+C:\Users\Jerry 107\source\repos\GIthub\Types\bin\Debug\Types.dll
+C:\Users\Jerry 107\source\repos\GIthub\Types\bin\Debug\Types.pdb
+C:\Users\Jerry 107\source\repos\GIthub\Types\obj\Debug\Types.csproj.AssemblyReference.cache
+C:\Users\Jerry 107\source\repos\GIthub\Types\obj\Debug\Types.csproj.CoreCompileInputs.cache
+C:\Users\Jerry 107\source\repos\GIthub\Types\obj\Debug\Types.dll
+C:\Users\Jerry 107\source\repos\GIthub\Types\obj\Debug\Types.pdb
+C:\Users\habaj\source\repos\VentesVoitures\Types\bin\Debug\Types.dll
+C:\Users\habaj\source\repos\VentesVoitures\Types\bin\Debug\Types.pdb
+C:\Users\habaj\source\repos\VentesVoitures\Types\obj\Debug\Types.csproj.AssemblyReference.cache
+C:\Users\habaj\source\repos\VentesVoitures\Types\obj\Debug\Types.csproj.CoreCompileInputs.cache
+C:\Users\habaj\source\repos\VentesVoitures\Types\obj\Debug\Types.dll
+C:\Users\habaj\source\repos\VentesVoitures\Types\obj\Debug\Types.pdb

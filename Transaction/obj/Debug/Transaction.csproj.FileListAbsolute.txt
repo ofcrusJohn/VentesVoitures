@@ -1,0 +1,36 @@
+C:\Users\habaj\Desktop\COURS 1236 C#\Transaction\bin\Debug\Transaction.dll
+C:\Users\habaj\Desktop\COURS 1236 C#\Transaction\bin\Debug\Transaction.pdb
+C:\Users\habaj\Desktop\COURS 1236 C#\Transaction\obj\Debug\Transaction.csproj.AssemblyReference.cache
+C:\Users\habaj\Desktop\COURS 1236 C#\Transaction\obj\Debug\Transaction.csproj.CoreCompileInputs.cache
+C:\Users\habaj\Desktop\COURS 1236 C#\Transaction\obj\Debug\Transaction.dll
+C:\Users\habaj\Desktop\COURS 1236 C#\Transaction\obj\Debug\Transaction.pdb
+C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Transaction\bin\Debug\Transaction.dll
+C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Transaction\bin\Debug\Transaction.pdb
+C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Transaction\obj\Debug\Transaction.csproj.AssemblyReference.cache
+C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Transaction\obj\Debug\Transaction.csproj.CoreCompileInputs.cache
+C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Transaction\obj\Debug\Transaction.dll
+C:\Users\habaj\Desktop\COURS 1236 C#\Devoir3\Transaction\obj\Debug\Transaction.pdb
+C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\bin\Debug\Transaction.dll
+C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\bin\Debug\Transaction.pdb
+C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.csproj.AssemblyReference.cache
+C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.csproj.CoreCompileInputs.cache
+C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.dll
+C:\Users\Jerry 107\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.pdb
+C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\bin\Debug\Transaction.dll
+C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\bin\Debug\Transaction.pdb
+C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.csproj.AssemblyReference.cache
+C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.csproj.CoreCompileInputs.cache
+C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.dll
+C:\Users\dosso\Source\Repos\VentesVoitures\Transaction\obj\Debug\Transaction.pdb
+C:\Users\Jerry 107\source\repos\GIthub\Transaction\bin\Debug\Transaction.dll
+C:\Users\Jerry 107\source\repos\GIthub\Transaction\bin\Debug\Transaction.pdb
+C:\Users\Jerry 107\source\repos\GIthub\Transaction\obj\Debug\Transaction.csproj.AssemblyReference.cache
+C:\Users\Jerry 107\source\repos\GIthub\Transaction\obj\Debug\Transaction.csproj.CoreCompileInputs.cache
+C:\Users\Jerry 107\source\repos\GIthub\Transaction\obj\Debug\Transaction.dll
+C:\Users\Jerry 107\source\repos\GIthub\Transaction\obj\Debug\Transaction.pdb
+C:\Users\habaj\source\repos\VentesVoitures\Transaction\bin\Debug\Transaction.dll
+C:\Users\habaj\source\repos\VentesVoitures\Transaction\bin\Debug\Transaction.pdb
+C:\Users\habaj\source\repos\VentesVoitures\Transaction\obj\Debug\Transaction.csproj.AssemblyReference.cache
+C:\Users\habaj\source\repos\VentesVoitures\Transaction\obj\Debug\Transaction.csproj.CoreCompileInputs.cache
+C:\Users\habaj\source\repos\VentesVoitures\Transaction\obj\Debug\Transaction.dll
+C:\Users\habaj\source\repos\VentesVoitures\Transaction\obj\Debug\Transaction.pdb
