@@ -6,6 +6,8 @@
     Projet:       VentesVoitures.csproj
 
     Namespace:    {VentesVoitures}
+
+    But: Implementation de la phrase H 
 */
 
 
