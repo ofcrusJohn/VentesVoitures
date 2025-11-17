@@ -16,6 +16,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.IO;
+using System.Globalization;
 
 
 namespace TransactionNS
@@ -116,7 +118,30 @@ namespace TransactionNS
         /// </summary>
         private void InitModele()
         {
-            tModele = new string[7] { "CX-3", "Altima", "Elantra", "Primera", "Rav4", "Focus", "Civic" };
+            try
+            {
+                string chemin = "..\\..\\Data\\Modeles.data";
+                using (StreamReader reader = new StreamReader(chemin))
+                { 
+                 string ligne=reader.ReadLine();
+                    int nombre=int.Parse(ligne);
+                    tModele= new string[nombre];
+                    for(int i=0; i<nombre; i++)
+                    {
+                        tModele[i] = reader.ReadLine();
+                    }
+                }
+            }
+            catch (FormatException ex)
+            {
+                throw new FormatException("Erreur dans le fichier Modele", ex);
+            }
+            catch (FileNotFoundException ex)
+            { throw new FileNotFoundException("Le fichier Modele n'est pas disponible", ex); }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur inderterminée",ex);
+            }
         }
 
         /// <summary>
@@ -124,7 +149,32 @@ namespace TransactionNS
         /// </summary>
         private void InitAnnee()
         {
-            tAnnee = new string[10] { "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025" };
+            try
+            {
+                string chemin = "..\\..\\Data\\Annee.data";
+                using (StreamReader reader = new StreamReader(chemin))
+                {
+                    string ligne = reader.ReadLine();
+                    int nombre = int.Parse(ligne);
+                    tAnnee = new string[nombre];
+                    for (int i = 0; i < nombre; i++)
+                    {
+                        tAnnee[i] = reader.ReadLine();
+                    }
+                }
+
+
+            }
+            catch (FormatException ex)
+            {
+                throw new FormatException("Erreur dans le fichier Annee", ex);
+            }
+            catch (FileNotFoundException ex)
+            { throw new FileNotFoundException("Le fichier Annee n'est pas disponible", ex); }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur inderterminée", ex);
+            }
         }
 
         /// <summary>
@@ -132,29 +182,41 @@ namespace TransactionNS
         /// </summary>
         private void InitPrix()
         {
-            tPrix = new decimal[10, 7]
+            try
             {
-                // Année : 2016
-                { 25000.00M, 27000.00M, 23000.00M, 26000.00M, 32000.00M, 21000.00M, 24000.00M },
-                // Année : 2017
-                { 26000.00M, 28000.00M, 24000.00M, 27000.00M, 33000.00M, 22000.00M, 25000.00M },
-                // Année : 2018
-                { 27000.00M, 29000.00M, 25000.00M, 28000.00M, 34000.00M, 23000.00M, 26000.00M },
-                // Année : 2019
-                { 28000.00M, 30000.00M, 26000.00M, 29000.00M, 35000.00M, 24000.00M, 27000.00M },
-                // Année : 2020
-                { 30000.00M, 32000.00M, 28000.00M, 31000.00M, 37000.00M, 26000.00M, 29000.00M },
-                // Année : 2021
-                { 32000.00M, 34000.00M, 30000.00M, 33000.00M, 39000.00M, 28000.00M, 31000.00M },
-                // Année : 2022
-                { 34000.00M, 36000.00M, 32000.00M, 35000.00M, 41000.00M, 30000.00M, 33000.00M },
-                // Année : 2023
-                { 36000.00M, 38000.00M, 34000.00M, 37000.00M, 43000.00M, 32000.00M, 35000.00M },
-                // Année : 2024
-                { 38000.00M, 40000.00M, 36000.00M, 39000.00M, 45000.00M, 34000.00M, 37000.00M },
-                // Année : 2025
-                { 40000.00M, 42000.00M, 38000.00M, 41000.00M, 47000.00M, 36000.00M, 39000.00M }
-            };
+                string chemin = "..\\..\\Data\\Prix.data";
+                CultureInfo culture = CultureInfo.GetCultureInfo("en_CA");
+                int nbModele = tModele.Length;
+                int nbAnnee = tAnnee.Length;
+                tPrix = new decimal[nbAnnee, nbModele];
+                using(StreamReader reader = new StreamReader(chemin))
+                {
+                    for(int i = 0;i < nbAnnee; i++)
+                    {
+                        for( int j = 0;j < nbModele; j++)
+                        {
+                            string line = reader.ReadLine();
+                            if(line == null)
+                            {
+                                throw new Exception("Le fichier des prix ne contient pas assez de ligne");
+                            }
+                            tPrix[i,j]=decimal.Parse(line,culture);
+        
+                        }     
+                    }
+                }
+
+            }
+            catch (FormatException ex)
+            {
+                throw new FormatException("Erreur dans le fichier Prix", ex);
+            }
+            catch (FileNotFoundException ex)
+            { throw new FileNotFoundException("Le fichier Prix n'est pas disponible", ex); }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur inderterminée", ex);
+            }
         }
         #endregion
 
