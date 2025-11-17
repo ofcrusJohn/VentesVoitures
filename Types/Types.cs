@@ -7,7 +7,7 @@
 
     Namespace:      {typesNs}
     
-    Phase H: Implemente les solutions completes
+    BUT: construis la phase h
 */
 
 
