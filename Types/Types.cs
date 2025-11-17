@@ -102,7 +102,7 @@ namespace TypesNs
         {
             try
             {
-                string chemin = "..\\..\\Data\\Modeles.data";
+                string chemin = "..\\..\\Data\\Marques.data";
                 using (StreamReader sw = new StreamReader(chemin)) // UTF-8 BOM
                 {
                     // 1 - lire le nombre de types
