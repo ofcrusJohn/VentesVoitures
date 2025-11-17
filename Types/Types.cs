@@ -6,7 +6,8 @@
     Projet:       VentesVoitures.csproj
 
     Namespace:      {typesNs}
-  
+    
+    Phase H: Implemente les solutions completes
 */
 
 
