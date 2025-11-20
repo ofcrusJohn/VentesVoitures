@@ -187,7 +187,7 @@
             // 
             this.telephoneMaskedTextBox.Location = new System.Drawing.Point(151, 179);
             this.telephoneMaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.telephoneMaskedTextBox.Mask = "(000) 000 0000";
+            this.telephoneMaskedTextBox.Mask = "(000)-000-0000";
             this.telephoneMaskedTextBox.Name = "telephoneMaskedTextBox";
             this.telephoneMaskedTextBox.Size = new System.Drawing.Size(265, 20);
             this.telephoneMaskedTextBox.TabIndex = 6;

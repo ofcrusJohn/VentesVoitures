@@ -29,6 +29,8 @@ namespace TransactionNS
     {
         #region variables statiques pour tenir compte des numeros de transaction : Phase E  
         public static int NombreTransactions = 0;
+        public const string DELIMITEUR = ";";
+        private CultureInfo cultureInfoENCA = new CultureInfo("en-CA");
         #endregion
 
         #region Champs privés pour les dates
@@ -41,7 +43,7 @@ namespace TransactionNS
         // Regex pour valider le code postal canadien (format A1A 1A1 ou A1A1A1)
         private const string REGEX_CODE_POSTAL = "^[A-Za-z]\\d[A-Za-z]\\s?\\d[A-Za-z]\\d$";
         // Regex pour valider le numéro de téléphone canadien 123-456-7890 
-        private const string REGEX_TELEPHONE = "^\\d{3}-\\d{3}-\\d{4}$";
+        private const string REGEX_TELEPHONE = @"^\(\d{3}\)-\d{3}-\d{4}$";
 
         #endregion
 
@@ -95,7 +97,7 @@ namespace TransactionNS
         #endregion
 
         #region Champs privés
-        private int idInt;
+        private long idInt;
         private string nomStr;
         private string prenomStr;
         private string adresseStr;
@@ -225,9 +227,10 @@ namespace TransactionNS
         /// <summary>
         /// Obtient l'identifiant unique de la transaction (lecture seule)
         /// </summary>
-        public int ID
+        public long ID
         {
             get { return idInt; }
+            
         }
 
         /// <summary>
@@ -356,6 +359,7 @@ namespace TransactionNS
                     throw new ArgumentException("Le format du code postal est invalide. Il doit être au format A1A 1A1 ou A1A1A1.");
                 }
                 #endregion
+                codePostalStr = value;
             }
         }
 
@@ -392,8 +396,9 @@ namespace TransactionNS
                 #region REGEX TELEPHONE : Phase E
                 if (!Regex.IsMatch(value, REGEX_TELEPHONE))
                 {
-                    throw new ArgumentException("Le format du numéro de téléphone est invalide. Il doit être au format 123-456-7890.");
+                    throw new ArgumentException("Le format du numéro de téléphone est invalide. Il doit être au format (123)-456-7890.");
                 }
+                telephoneStr= value;
                 #endregion
             }
         }
@@ -737,20 +742,40 @@ namespace TransactionNS
             NombreTransactions++;
             #endregion
 
-            Console.WriteLine("=== Transaction Enregistrée ===");
-            Console.WriteLine($"ID: {ID}");
-            Console.WriteLine($"Client: {Prenom} {Nom}");
-            Console.WriteLine($"Adresse: {Adresse}");
-            Console.WriteLine($"Code Postal: {CodePostal}");
-            Console.WriteLine($"Téléphone: {Telephone}");
-            Console.WriteLine($"Marque: {Marque}");
-            Console.WriteLine($"Modèle: {Modele}");
-            Console.WriteLine($"Type: {TypeVoiture}");
-            Console.WriteLine($"Année: {Annee}");
-            Console.WriteLine($"Date de livraison: {DateLivraison:D}");
-            Console.WriteLine($"Date due paiement: {DateDuePaiement:D}");
-            Console.WriteLine($"Prix total: {Prix:C}");
-            Console.WriteLine("==============================");
+            if (!TransactionCompletee())
+                throw new Exception("Certaines données obligatoires sont manquantes.");
+
+            // Générer l’ID basé sur l’horodatage
+            idInt = Math.Abs((int)DateTime.Now.Ticks);
+
+            string chemin = "..\\..\\Data\\Transactions.data";
+
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(chemin, true))
+                {
+                    string ligne =
+                        ID + DELIMITEUR.ToString() +
+                        Nom + DELIMITEUR +
+                        Prenom + DELIMITEUR +
+                        Adresse + DELIMITEUR +
+                        CodePostal + DELIMITEUR +
+                        Telephone + DELIMITEUR +
+                        TypeVoiture + DELIMITEUR +
+                        Marque + DELIMITEUR +
+                        Modele + DELIMITEUR +
+                        Annee + DELIMITEUR +
+                        Prix.ToString(cultureInfoENCA) + DELIMITEUR +
+                        DateLivraison.ToShortDateString() + DELIMITEUR +
+                        DateDuePaiement.ToShortDateString();
+
+                    sw.WriteLine(ligne);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur lors de l’enregistrement : " + ex.Message);
+            }
         }
 
         /// <summary>
@@ -780,8 +805,25 @@ namespace TransactionNS
 
         #endregion
 
+        #region validation la transaction
+        public bool TransactionCompletee()
+        {
+            return !string.IsNullOrWhiteSpace(Nom)
+                && !string.IsNullOrWhiteSpace(Prenom)
+                && !string.IsNullOrWhiteSpace(Adresse)
+                && !string.IsNullOrWhiteSpace(CodePostal)
+                && !string.IsNullOrWhiteSpace(Telephone)
+                && !string.IsNullOrWhiteSpace(Marque)
+                && !string.IsNullOrWhiteSpace(Modele)
+                && !string.IsNullOrWhiteSpace(Annee)
+                && !string.IsNullOrWhiteSpace(TypeVoiture)
+                && Prix > 0
+                && DateLivraison != DateTime.MinValue
+                && DateDuePaiement != DateTime.MinValue;
+        }
+        #endregion
 
 
-     
+
     }
 }
